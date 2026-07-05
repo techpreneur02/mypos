@@ -4,8 +4,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 Module Name: B2C Quick POS
-Description: Turns Perfex into a fast B2C Square-like Point of Sale
-Version: 1.0.0
+Description: Commercial B2C Point of Sale module for fast retail billing and reporting
+Version: 1.0.0-beta
+Author: Sherwin Armas
 Requires at least: 2.9.0
 */
 

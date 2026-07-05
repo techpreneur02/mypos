@@ -339,7 +339,7 @@
             <div class="col-md-8">
                 <div class="panel_s">
                     <div class="panel-body">
-                        <h4 class="no-margin">Products Grid (Square-like UI)</h4>
+                        <h4 class="no-margin">Product Catalog</h4>
                         <div class="row mtop5 mbot10">
                             <div class="col-md-12">
                                 <input type="text" id="pos-search-input" class="form-control" style="padding: 6px 10px; font-size: 14px;" placeholder="Search products by name or scan barcode directly...">
@@ -384,7 +384,7 @@
                 <div class="panel_s">
                     <div class="panel-body">
                         <h4 class="no-margin">
-                            Shopping Cart & Checkout
+                            Order Summary and Payment
                             <div class="pull-right">
                                 <button type="button" id="pos-hold-btn" class="btn btn-warning btn-xs">⏸ Hold</button>
                                 <button type="button" id="pos-resume-btn" class="btn btn-info btn-xs" style="display:none;">▶ Resume</button>
