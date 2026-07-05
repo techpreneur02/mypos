@@ -1152,6 +1152,24 @@ class Pos_controller extends AdminController
                 return;
             }
 
+            $supply_chain_model_path = module_dir_path('supply_chain', 'models/Supply_chain_model.php');
+            $legacy_purchasing_model_path = module_dir_path('purchasing', 'models/Purchasing_model.php');
+            try {
+                if (file_exists($supply_chain_model_path)) {
+                    $this->load->model('supply_chain/Supply_chain_model', 'supply_chain_model');
+                    if (isset($this->supply_chain_model) && method_exists($this->supply_chain_model, 'create_shipment')) {
+                        $this->supply_chain_model->create_shipment((int) $invoice_id, 'Auto-created from POS checkout');
+                    }
+                } elseif (file_exists($legacy_purchasing_model_path)) {
+                    $this->load->model('purchasing/Purchasing_model', 'purchasing_model');
+                    if (isset($this->purchasing_model) && method_exists($this->purchasing_model, 'create_shipment')) {
+                        $this->purchasing_model->create_shipment((int) $invoice_id, 'Auto-created from POS checkout');
+                    }
+                }
+            } catch (Exception $e) {
+                // Ignore logistics auto-create errors to avoid blocking checkout.
+            }
+
             if ($eligible_for_rewards && ($points_earned > 0 || $points_redeemed > 0)) {
                 if ($points_redeemed > 0) {
                     $points_redeemed = (int) $this->consume_points_fifo($walk_in_customer_id, $points_redeemed);
